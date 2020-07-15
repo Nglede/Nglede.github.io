@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文为FreeCodeCamp算法基础个人的答案，属于能过就行，仅供参考，后面可能回头将code优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FreeCodeCamp算法基础">
+<meta property="og:url" content="http://yoursite.com/2020/07/16/fcc-algorithm-basics/index.html">
+<meta property="og:site_name" content="北枳的个人博客">
+<meta property="og:description" content="本文为FreeCodeCamp算法基础个人的答案，属于能过就行，仅供参考，后面可能回头将code优化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-15T17:41:05.000Z">
+<meta property="article:modified_time" content="2020-07-15T17:41:05.284Z">
+<meta property="article:author" content="北枳">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/16/fcc-algorithm-basics/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>FreeCodeCamp算法基础 | 北枳的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="北枳的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Nglede" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">北枳的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">随手记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/16/fcc-algorithm-basics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="北枳">
+      <meta itemprop="description" content="碎碎念 乱叨叨">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="北枳的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          FreeCodeCamp算法基础
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-16 01:41:05" itemprop="dateCreated datePublished" datetime="2020-07-16T01:41:05+08:00">2020-07-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/freecodecamp/" itemprop="url" rel="index"><span itemprop="name">freecodecamp</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文为<a href="https://learn.freecodecamp.one/javascript-algorithms-and-data-structures/basic-algorithm-scripting" target="_blank" rel="noopener">FreeCodeCamp算法基础</a>个人的答案，属于能过就行，仅供参考，后面可能回头将code优化</p>
+<a id="more"></a>
+
+<h3 id="摄氏温度转换成华氏温度"><a href="#摄氏温度转换成华氏温度" class="headerlink" title="摄氏温度转换成华氏温度"></a>摄氏温度转换成华氏温度</h3><p>将摄氏度转换为华氏度的算法为：摄氏度 × <code>9/5 + 32</code></p>
+<p>输入参数 <code>celsius</code>代表一个摄氏温度值。请你根据上述转换公式，将已定义好的 <code>fahrenheit</code>变量赋值为对应的华氏温度的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">convertToF</span>(<span class="params">celsius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> fahrenheit = celsius * <span class="number">9</span> / <span class="number">5</span> + <span class="number">32</span></span><br><span class="line">  <span class="keyword">return</span> fahrenheit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">convertToF(<span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="翻转字符串"><a href="#翻转字符串" class="headerlink" title="翻转字符串"></a>翻转字符串</h3><p>反转给出的字符串。</p>
+<p>你在反转字符串前可能需要将其切分成字符的数组。</p>
+<p>你的结果必须是一个字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverseString</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">reverseString(<span class="string">"hello"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数字的阶乘"><a href="#数字的阶乘" class="headerlink" title="数字的阶乘"></a>数字的阶乘</h3><p>返回一个给定整数的阶乘。</p>
+<p>若 n 是一个整数，n 的阶乘就是所有小于等于 n 的正整数的乘积。</p>
+<p>n 的阶乘通常用符号 <code>n!</code>来表示。</p>
+<p>例如： <code>5! = 1 * 2 * 3 * 4 * 5 = 120</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorialize</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> product = <span class="number">1</span>; num &gt; <span class="number">0</span>; num--) &#123;</span><br><span class="line">    product *= num;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> product;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">factorialize(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查找字符串中最长的单词"><a href="#查找字符串中最长的单词" class="headerlink" title="查找字符串中最长的单词"></a>查找字符串中最长的单词</h3><p>返回给出的句子中最长的单词的长度。</p>
+<p>你的返回应该是一个数字。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWordLength</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> word = str.split(<span class="string">" "</span>);</span><br><span class="line">  <span class="keyword">let</span> max = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i &lt; word.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(word[i].length &gt; max)&#123;</span><br><span class="line">      max = word[i].length</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">findLongestWordLength(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回数组中最大的数字"><a href="#返回数组中最大的数字" class="headerlink" title="返回数组中最大的数字"></a>返回数组中最大的数字</h3><p>返回一个数组，它要由给出的所有子数组中的最大值组成。简单起见，给出的数组总会包含4个子数组。</p>
+<p>记得你可以在一个简单的 for 循环中遍历一个数组，并用 <code>arr[i]</code>这样的语法来访问数组中的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">largestOfFour</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> maxNum = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> num = arr[i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i][j] &gt; num) &#123;</span><br><span class="line">        num = arr[i][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    maxNum.push(num);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> maxNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">largestOfFour([</span><br><span class="line">  [<span class="number">17</span>, <span class="number">23</span>, <span class="number">25</span>, <span class="number">12</span>],</span><br><span class="line">  [<span class="number">25</span>, <span class="number">7</span>, <span class="number">34</span>, <span class="number">48</span>],</span><br><span class="line">  [<span class="number">4</span>, <span class="number">-10</span>, <span class="number">18</span>, <span class="number">21</span>],</span><br><span class="line">  [<span class="number">-72</span>, <span class="number">-3</span>, <span class="number">-17</span>, <span class="number">-10</span>],</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="检查字符串的结尾"><a href="#检查字符串的结尾" class="headerlink" title="检查字符串的结尾"></a>检查字符串的结尾</h3><p>检查一个字符串（第一个参数， <code>str</code>）是否以给定的字符串（第二个参数 <code>target</code>）结束。</p>
+<p>本题目<em>可以</em>用 ES2015 引入的 <code>.endsWith()</code>方法来解决。但本挑战的目的是让你使用 JavaScript 的一个 substring 方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">confirmEnding</span>(<span class="params">str, target</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// "Never give up and good luck will find you."</span></span><br><span class="line">  <span class="comment">// -- Falcor</span></span><br><span class="line">  <span class="keyword">if</span> (str.substring(str.length - target.length) === target) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;j</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="重复字符串"><a href="#重复字符串" class="headerlink" title="重复字符串"></a>重复字符串</h3><p>将一个给定的字符串（第一个参数， <code>str</code>)重复 <code>num</code>（第二个参数）次。如果 <code>num</code>不是一个正数，返回一个空字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">repeatStringNumTimes</span>(<span class="params">str, num</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// repeat after me</span></span><br><span class="line">  <span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> str1 = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">    str1 += str;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">repeatStringNumTimes(<span class="string">"abc"</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="截断字符串"><a href="#截断字符串" class="headerlink" title="截断字符串"></a>截断字符串</h3><p>如果一个字符串（第一个参数）的长度大于给出的值（第二个参数），则截断它并在其后加上 <code>...</code>。返回被截断的字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">truncateString</span>(<span class="params">str, num</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Clear out that junk in your trunk</span></span><br><span class="line">  <span class="keyword">if</span>(str.length &gt; num)&#123;</span><br><span class="line">    <span class="keyword">return</span> str.substring(<span class="number">0</span>,num) + <span class="string">"..."</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">truncateString(<span class="string">"A-tisket a-tasket A green and yellow basket"</span>, <span class="string">"A-tisket a-tasket A green and yellow basket"</span>.length);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="发现者与看护者"><a href="#发现者与看护者" class="headerlink" title="发现者与看护者"></a>发现者与看护者</h3><p>请写一个函数来检查一个数组（第一个参数）中的元素，并返回数组中第一个通过校验测试（第二个参数，一个接受一个参数并返回一个布尔值的函数）的元素。如果没有元素通过测试，则返回 undefined。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findElement</span>(<span class="params">arr, func</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> num = arr.find(func);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">findElement([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], num =&gt; num % <span class="number">2</span> === <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="真假测试"><a href="#真假测试" class="headerlink" title="真假测试"></a>真假测试</h3><p>检查一个值是否是原始的布尔值（boolean）类型。返回 true 或者 false。</p>
+<p>布尔值原始类型为 true 或者 false。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">booWho</span>(<span class="params">bool</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// What is the new fad diet for ghost developers? The Boolean.</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> bool === <span class="string">"boolean"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">booWho(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="单词的首字母大写"><a href="#单词的首字母大写" class="headerlink" title="单词的首字母大写"></a>单词的首字母大写</h3><p>将给出的字符串中所有单词的第一个字母变成大写，并返回得到的字符串。请确保其余的字母是小写的。</p>
+<p>出于练习的目的，“ the ”“ of ”等虚词的首字母也要大写。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">titleCase</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = str.toLocaleLowerCase().split(<span class="string">" "</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    arr[i] = arr[i].charAt(<span class="number">0</span>).toUpperCase() + arr[i].slice(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  str = arr.join(<span class="string">" "</span>)</span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">titleCase(<span class="string">"I'm a little tea pot"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="slice-和-splice"><a href="#slice-和-splice" class="headerlink" title="slice 和 splice"></a>slice 和 splice</h3><p>本挑战的输入参数为：两个数组和一个索引值。</p>
+<p>请利用数组的 <code>slice</code>和 <code>splice</code>方法，将第一个数组中的所有元素依次复制到第二个数组中。</p>
+<p>请从第二个数组中索引值为 <code>n</code>的地方开始插入。</p>
+<p>返回插入元素后的数组。输入的两个数组在函数执行前后要保持不变。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">frankenSplice</span>(<span class="params">arr1, arr2, n</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// It's alive. It's alive!</span></span><br><span class="line">  <span class="keyword">let</span> arr3 = arr2.slice()</span><br><span class="line">  arr3.splice(n,<span class="number">0</span>,...arr1)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">frankenSplice([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="去除数组中的假值"><a href="#去除数组中的假值" class="headerlink" title="去除数组中的假值"></a>去除数组中的假值</h3><p>从一个数组中移除所有假值（falsy values）。</p>
+<p>JavaScript 中的假值有 <code>false</code>、<code>null</code>、<code>0</code>、<code>&quot;&quot;</code>、<code>undefined</code>和 <code>NaN</code>。</p>
+<p>提示：请尝试将每一个值转换为一个布尔值（boolean）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bouncer</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Don't show a false ID to this bouncer.</span></span><br><span class="line">  <span class="keyword">let</span> removeArr = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[i]) removeArr.push(arr[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> removeArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bouncer([<span class="number">7</span>, <span class="string">"ate"</span>, <span class="string">""</span>, <span class="literal">false</span>, <span class="number">9</span>]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="我身在何处"><a href="#我身在何处" class="headerlink" title="我身在何处"></a>我身在何处</h3><p>返回数组（第一个参数）被排序后，将一个值（第二个参数）插入到该数组中而使数组保持有序的最小的索引。返回的值应该是一个数字。</p>
+<p>例如，<code>getIndexToIns([1,2,3,4], 1.5)</code>应该返回 <code>1</code>因为 1.5 大于 <code>1</code>（索引为 0），但小于 <code>2</code>（索引为 1）。</p>
+<p>同样地，<code>getIndexToIns([20,3,5], 19)</code>应该返回 <code>2</code>因为数组被排序后会变成 <code>[3,5,20]</code>，而 <code>19</code>小于 <code>20</code>（索引为 2）且大于 <code>5</code>（索引为 1）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIndexToIns</span>(<span class="params">arr, num</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Find my place in this sorted array.</span></span><br><span class="line">  arr.push(num)</span><br><span class="line">  arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr.indexOf(num)</span><br><span class="line">&#125;</span><br><span class="line">getIndexToIns([<span class="number">5</span>, <span class="number">3</span>, <span class="number">20</span>, <span class="number">3</span>], <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="集合之间的关系"><a href="#集合之间的关系" class="headerlink" title="集合之间的关系"></a>集合之间的关系</h3><p>输入参数是一个有两个字符串元素的数组。如果第一个字符串中包含了第二个字符串中的所有字母，则返回 true。</p>
+<p>例如，<code>[&quot;hello&quot;, &quot;Hello&quot;]</code>应该返回 true 因为第一个字符串中包含了第二个字符串中出现的所有字母（忽略大小写）。</p>
+<p>而 <code>[&quot;hello&quot;, &quot;hey&quot;]</code>应该返回 false 因为第一个字符串 “hello” 没有包含字母 “y”。</p>
+<p>最后，<code>[&quot;Alien&quot;, &quot;line&quot;]</code>, 应该返回 true，因为 “line” 中的所有字母都被包含在 “Alien” 中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mutation</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> a0 = arr[<span class="number">0</span>].toLowerCase();</span><br><span class="line">  <span class="keyword">let</span> a1 = arr[<span class="number">1</span>].toLowerCase();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; a1.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(a0.indexOf(a1[i]) &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mutation([<span class="string">"hello"</span>, <span class="string">"hey"</span>]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="猴子吃香蕉"><a href="#猴子吃香蕉" class="headerlink" title="猴子吃香蕉"></a>猴子吃香蕉</h3><p>请写一个函数，将一个数组（第一个参数）分割成一组长度为 <code>size</code>（第二个参数）的数组，然后在一个二维数组中返回这些结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chunkArrayInGroups</span>(<span class="params">arr, size</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Break it up.</span></span><br><span class="line">  <span class="keyword">let</span> newArr = [];</span><br><span class="line">  <span class="keyword">while</span> (arr.length &gt;= size) &#123;</span><br><span class="line">    newArr.push(arr.splice(<span class="number">0</span>, size));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (arr.length !== <span class="number">0</span>) &#123;</span><br><span class="line">    newArr.push(arr)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chunkArrayInGroups([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">-------------The End-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">rss</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/04/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#摄氏温度转换成华氏温度"><span class="nav-number">1.</span> <span class="nav-text">摄氏温度转换成华氏温度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转字符串"><span class="nav-number">2.</span> <span class="nav-text">翻转字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字的阶乘"><span class="nav-number">3.</span> <span class="nav-text">数字的阶乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找字符串中最长的单词"><span class="nav-number">4.</span> <span class="nav-text">查找字符串中最长的单词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回数组中最大的数字"><span class="nav-number">5.</span> <span class="nav-text">返回数组中最大的数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查字符串的结尾"><span class="nav-number">6.</span> <span class="nav-text">检查字符串的结尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复字符串"><span class="nav-number">7.</span> <span class="nav-text">重复字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截断字符串"><span class="nav-number">8.</span> <span class="nav-text">截断字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发现者与看护者"><span class="nav-number">9.</span> <span class="nav-text">发现者与看护者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真假测试"><span class="nav-number">10.</span> <span class="nav-text">真假测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单词的首字母大写"><span class="nav-number">11.</span> <span class="nav-text">单词的首字母大写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice-和-splice"><span class="nav-number">12.</span> <span class="nav-text">slice 和 splice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去除数组中的假值"><span class="nav-number">13.</span> <span class="nav-text">去除数组中的假值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我身在何处"><span class="nav-number">14.</span> <span class="nav-text">我身在何处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合之间的关系"><span class="nav-number">15.</span> <span class="nav-text">集合之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#猴子吃香蕉"><span class="nav-number">16.</span> <span class="nav-text">猴子吃香蕉</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="北枳"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">北枳</p>
+  <div class="site-description" itemprop="description">碎碎念 乱叨叨</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Nglede" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Nglede" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2631911526@qq.com" title="E-Mail → mailto:2631911526@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">北枳</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">5k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5 分钟</span>
+</div>
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("05/05/2020 00:55:00");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="本站已安全运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '2d5a10bc7e16a35a7bce',
+      clientSecret: '28bde1b0114abe3396cfc4e64b5139bb5a5165fb',
+      repo        : 'Nglede.github.io',
+      owner       : 'Nglede',
+      admin       : ['Nglede'],
+      id          : '737e48e1b98126247f0f46b51cb4155a',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>

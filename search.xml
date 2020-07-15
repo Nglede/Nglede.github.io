@@ -20,4 +20,118 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>FreeCodeCamp算法基础</title>
+    <url>/2020/07/16/fcc-algorithm-basics/</url>
+    <content><![CDATA[<p>本文为<a href="https://learn.freecodecamp.one/javascript-algorithms-and-data-structures/basic-algorithm-scripting" target="_blank" rel="noopener">FreeCodeCamp算法基础</a>个人的答案，属于能过就行，仅供参考，后面可能回头将code优化</p>
+<a id="more"></a>
+
+<h3 id="摄氏温度转换成华氏温度"><a href="#摄氏温度转换成华氏温度" class="headerlink" title="摄氏温度转换成华氏温度"></a>摄氏温度转换成华氏温度</h3><p>将摄氏度转换为华氏度的算法为：摄氏度 × <code>9/5 + 32</code></p>
+<p>输入参数 <code>celsius</code>代表一个摄氏温度值。请你根据上述转换公式，将已定义好的 <code>fahrenheit</code>变量赋值为对应的华氏温度的值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">convertToF</span>(<span class="params">celsius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> fahrenheit = celsius * <span class="number">9</span> / <span class="number">5</span> + <span class="number">32</span></span><br><span class="line">  <span class="keyword">return</span> fahrenheit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">convertToF(<span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="翻转字符串"><a href="#翻转字符串" class="headerlink" title="翻转字符串"></a>翻转字符串</h3><p>反转给出的字符串。</p>
+<p>你在反转字符串前可能需要将其切分成字符的数组。</p>
+<p>你的结果必须是一个字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverseString</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">reverseString(<span class="string">"hello"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数字的阶乘"><a href="#数字的阶乘" class="headerlink" title="数字的阶乘"></a>数字的阶乘</h3><p>返回一个给定整数的阶乘。</p>
+<p>若 n 是一个整数，n 的阶乘就是所有小于等于 n 的正整数的乘积。</p>
+<p>n 的阶乘通常用符号 <code>n!</code>来表示。</p>
+<p>例如： <code>5! = 1 * 2 * 3 * 4 * 5 = 120</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorialize</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> product = <span class="number">1</span>; num &gt; <span class="number">0</span>; num--) &#123;</span><br><span class="line">    product *= num;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> product;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">factorialize(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查找字符串中最长的单词"><a href="#查找字符串中最长的单词" class="headerlink" title="查找字符串中最长的单词"></a>查找字符串中最长的单词</h3><p>返回给出的句子中最长的单词的长度。</p>
+<p>你的返回应该是一个数字。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWordLength</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> word = str.split(<span class="string">" "</span>);</span><br><span class="line">  <span class="keyword">let</span> max = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i &lt; word.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(word[i].length &gt; max)&#123;</span><br><span class="line">      max = word[i].length</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">findLongestWordLength(<span class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回数组中最大的数字"><a href="#返回数组中最大的数字" class="headerlink" title="返回数组中最大的数字"></a>返回数组中最大的数字</h3><p>返回一个数组，它要由给出的所有子数组中的最大值组成。简单起见，给出的数组总会包含4个子数组。</p>
+<p>记得你可以在一个简单的 for 循环中遍历一个数组，并用 <code>arr[i]</code>这样的语法来访问数组中的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">largestOfFour</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> maxNum = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> num = arr[i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i][j] &gt; num) &#123;</span><br><span class="line">        num = arr[i][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    maxNum.push(num);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> maxNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">largestOfFour([</span><br><span class="line">  [<span class="number">17</span>, <span class="number">23</span>, <span class="number">25</span>, <span class="number">12</span>],</span><br><span class="line">  [<span class="number">25</span>, <span class="number">7</span>, <span class="number">34</span>, <span class="number">48</span>],</span><br><span class="line">  [<span class="number">4</span>, <span class="number">-10</span>, <span class="number">18</span>, <span class="number">21</span>],</span><br><span class="line">  [<span class="number">-72</span>, <span class="number">-3</span>, <span class="number">-17</span>, <span class="number">-10</span>],</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="检查字符串的结尾"><a href="#检查字符串的结尾" class="headerlink" title="检查字符串的结尾"></a>检查字符串的结尾</h3><p>检查一个字符串（第一个参数， <code>str</code>）是否以给定的字符串（第二个参数 <code>target</code>）结束。</p>
+<p>本题目<em>可以</em>用 ES2015 引入的 <code>.endsWith()</code>方法来解决。但本挑战的目的是让你使用 JavaScript 的一个 substring 方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">confirmEnding</span>(<span class="params">str, target</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// "Never give up and good luck will find you."</span></span><br><span class="line">  <span class="comment">// -- Falcor</span></span><br><span class="line">  <span class="keyword">if</span> (str.substring(str.length - target.length) === target) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;j</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="重复字符串"><a href="#重复字符串" class="headerlink" title="重复字符串"></a>重复字符串</h3><p>将一个给定的字符串（第一个参数， <code>str</code>)重复 <code>num</code>（第二个参数）次。如果 <code>num</code>不是一个正数，返回一个空字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">repeatStringNumTimes</span>(<span class="params">str, num</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// repeat after me</span></span><br><span class="line">  <span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> str1 = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">    str1 += str;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">repeatStringNumTimes(<span class="string">"abc"</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="截断字符串"><a href="#截断字符串" class="headerlink" title="截断字符串"></a>截断字符串</h3><p>如果一个字符串（第一个参数）的长度大于给出的值（第二个参数），则截断它并在其后加上 <code>...</code>。返回被截断的字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">truncateString</span>(<span class="params">str, num</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Clear out that junk in your trunk</span></span><br><span class="line">  <span class="keyword">if</span>(str.length &gt; num)&#123;</span><br><span class="line">    <span class="keyword">return</span> str.substring(<span class="number">0</span>,num) + <span class="string">"..."</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">truncateString(<span class="string">"A-tisket a-tasket A green and yellow basket"</span>, <span class="string">"A-tisket a-tasket A green and yellow basket"</span>.length);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="发现者与看护者"><a href="#发现者与看护者" class="headerlink" title="发现者与看护者"></a>发现者与看护者</h3><p>请写一个函数来检查一个数组（第一个参数）中的元素，并返回数组中第一个通过校验测试（第二个参数，一个接受一个参数并返回一个布尔值的函数）的元素。如果没有元素通过测试，则返回 undefined。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findElement</span>(<span class="params">arr, func</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> num = arr.find(func);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">findElement([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], num =&gt; num % <span class="number">2</span> === <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="真假测试"><a href="#真假测试" class="headerlink" title="真假测试"></a>真假测试</h3><p>检查一个值是否是原始的布尔值（boolean）类型。返回 true 或者 false。</p>
+<p>布尔值原始类型为 true 或者 false。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">booWho</span>(<span class="params">bool</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// What is the new fad diet for ghost developers? The Boolean.</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> bool === <span class="string">"boolean"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">booWho(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="单词的首字母大写"><a href="#单词的首字母大写" class="headerlink" title="单词的首字母大写"></a>单词的首字母大写</h3><p>将给出的字符串中所有单词的第一个字母变成大写，并返回得到的字符串。请确保其余的字母是小写的。</p>
+<p>出于练习的目的，“ the ”“ of ”等虚词的首字母也要大写。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">titleCase</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = str.toLocaleLowerCase().split(<span class="string">" "</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    arr[i] = arr[i].charAt(<span class="number">0</span>).toUpperCase() + arr[i].slice(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  str = arr.join(<span class="string">" "</span>)</span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">titleCase(<span class="string">"I'm a little tea pot"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="slice-和-splice"><a href="#slice-和-splice" class="headerlink" title="slice 和 splice"></a>slice 和 splice</h3><p>本挑战的输入参数为：两个数组和一个索引值。</p>
+<p>请利用数组的 <code>slice</code>和 <code>splice</code>方法，将第一个数组中的所有元素依次复制到第二个数组中。</p>
+<p>请从第二个数组中索引值为 <code>n</code>的地方开始插入。</p>
+<p>返回插入元素后的数组。输入的两个数组在函数执行前后要保持不变。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">frankenSplice</span>(<span class="params">arr1, arr2, n</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// It's alive. It's alive!</span></span><br><span class="line">  <span class="keyword">let</span> arr3 = arr2.slice()</span><br><span class="line">  arr3.splice(n,<span class="number">0</span>,...arr1)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">frankenSplice([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="去除数组中的假值"><a href="#去除数组中的假值" class="headerlink" title="去除数组中的假值"></a>去除数组中的假值</h3><p>从一个数组中移除所有假值（falsy values）。</p>
+<p>JavaScript 中的假值有 <code>false</code>、<code>null</code>、<code>0</code>、<code>&quot;&quot;</code>、<code>undefined</code>和 <code>NaN</code>。</p>
+<p>提示：请尝试将每一个值转换为一个布尔值（boolean）。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bouncer</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Don't show a false ID to this bouncer.</span></span><br><span class="line">  <span class="keyword">let</span> removeArr = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[i]) removeArr.push(arr[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> removeArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bouncer([<span class="number">7</span>, <span class="string">"ate"</span>, <span class="string">""</span>, <span class="literal">false</span>, <span class="number">9</span>]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="我身在何处"><a href="#我身在何处" class="headerlink" title="我身在何处"></a>我身在何处</h3><p>返回数组（第一个参数）被排序后，将一个值（第二个参数）插入到该数组中而使数组保持有序的最小的索引。返回的值应该是一个数字。</p>
+<p>例如，<code>getIndexToIns([1,2,3,4], 1.5)</code>应该返回 <code>1</code>因为 1.5 大于 <code>1</code>（索引为 0），但小于 <code>2</code>（索引为 1）。</p>
+<p>同样地，<code>getIndexToIns([20,3,5], 19)</code>应该返回 <code>2</code>因为数组被排序后会变成 <code>[3,5,20]</code>，而 <code>19</code>小于 <code>20</code>（索引为 2）且大于 <code>5</code>（索引为 1）。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIndexToIns</span>(<span class="params">arr, num</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Find my place in this sorted array.</span></span><br><span class="line">  arr.push(num)</span><br><span class="line">  arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr.indexOf(num)</span><br><span class="line">&#125;</span><br><span class="line">getIndexToIns([<span class="number">5</span>, <span class="number">3</span>, <span class="number">20</span>, <span class="number">3</span>], <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="集合之间的关系"><a href="#集合之间的关系" class="headerlink" title="集合之间的关系"></a>集合之间的关系</h3><p>输入参数是一个有两个字符串元素的数组。如果第一个字符串中包含了第二个字符串中的所有字母，则返回 true。</p>
+<p>例如，<code>[&quot;hello&quot;, &quot;Hello&quot;]</code>应该返回 true 因为第一个字符串中包含了第二个字符串中出现的所有字母（忽略大小写）。</p>
+<p>而 <code>[&quot;hello&quot;, &quot;hey&quot;]</code>应该返回 false 因为第一个字符串 “hello” 没有包含字母 “y”。</p>
+<p>最后，<code>[&quot;Alien&quot;, &quot;line&quot;]</code>, 应该返回 true，因为 “line” 中的所有字母都被包含在 “Alien” 中。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mutation</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> a0 = arr[<span class="number">0</span>].toLowerCase();</span><br><span class="line">  <span class="keyword">let</span> a1 = arr[<span class="number">1</span>].toLowerCase();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; a1.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(a0.indexOf(a1[i]) &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mutation([<span class="string">"hello"</span>, <span class="string">"hey"</span>]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="猴子吃香蕉"><a href="#猴子吃香蕉" class="headerlink" title="猴子吃香蕉"></a>猴子吃香蕉</h3><p>请写一个函数，将一个数组（第一个参数）分割成一组长度为 <code>size</code>（第二个参数）的数组，然后在一个二维数组中返回这些结果。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chunkArrayInGroups</span>(<span class="params">arr, size</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Break it up.</span></span><br><span class="line">  <span class="keyword">let</span> newArr = [];</span><br><span class="line">  <span class="keyword">while</span> (arr.length &gt;= size) &#123;</span><br><span class="line">    newArr.push(arr.splice(<span class="number">0</span>, size));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (arr.length !== <span class="number">0</span>) &#123;</span><br><span class="line">    newArr.push(arr)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chunkArrayInGroups([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>freecodecamp</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
 </search>
