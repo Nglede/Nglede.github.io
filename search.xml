@@ -134,4 +134,396 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Gitmoji速查</title>
+    <url>/2020/07/18/gitmoji-quick-check/</url>
+    <content><![CDATA[<blockquote>
+<p>官方 GitHub 地址：<a href="https://github.com/carloscuesta/gitmoji" target="_blank" rel="noopener">Gitmoji Repo</a></p>
+<p>官方网址 <a href="https://gitmoji.carloscuesta.me/" target="_blank" rel="noopener">gitmoji</a></p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>在commit时在开头写入emoji 代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m <span class="string">":tada: fisrt commit"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="速查表"><a href="#速查表" class="headerlink" title="速查表"></a>速查表</h3><table>
+<thead>
+<tr>
+<th align="center">emoji</th>
+<th align="center">emoji 代码</th>
+<th align="center">说明(英文)</th>
+<th align="center">说明（中文）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">🎨</td>
+<td align="center"><code>:art:</code></td>
+<td align="center">Improving structure / format of the code.</td>
+<td align="center">改进代码结构/代码格式</td>
+</tr>
+<tr>
+<td align="center">⚡️</td>
+<td align="center"><code>:zap:</code></td>
+<td align="center">Improving performance.</td>
+<td align="center">提升性能</td>
+</tr>
+<tr>
+<td align="center">:fire:</td>
+<td align="center"><code>:fire:</code>​</td>
+<td align="center">Removing code or files.</td>
+<td align="center">移除代码或文件</td>
+</tr>
+<tr>
+<td align="center">:bug:</td>
+<td align="center"><code>:bug:</code></td>
+<td align="center">Fixing a bug.</td>
+<td align="center">修复 bug</td>
+</tr>
+<tr>
+<td align="center">:ambulance:</td>
+<td align="center"><code>:ambulance:</code></td>
+<td align="center">Critical hotfix.</td>
+<td align="center">重要补丁</td>
+</tr>
+<tr>
+<td align="center">:sparkles:</td>
+<td align="center"><code>:sparkles:</code></td>
+<td align="center">Introducing new features.</td>
+<td align="center">引入新功能</td>
+</tr>
+<tr>
+<td align="center">:pencil:</td>
+<td align="center"><code>:pencil:</code></td>
+<td align="center">Writing docs.</td>
+<td align="center">撰写文档</td>
+</tr>
+<tr>
+<td align="center">:rocket:</td>
+<td align="center"><code>:rocket:</code></td>
+<td align="center">Deploying stuff.</td>
+<td align="center">部署功能</td>
+</tr>
+<tr>
+<td align="center">:lipstick:</td>
+<td align="center"><code>:lipstick:</code></td>
+<td align="center">Adding or updating the UI and style files.</td>
+<td align="center">更新 UI 和样式文件</td>
+</tr>
+<tr>
+<td align="center">:tada:</td>
+<td align="center"><code>:tada:</code></td>
+<td align="center">Beginning a project.</td>
+<td align="center">初次提交</td>
+</tr>
+<tr>
+<td align="center">:white_check_mark:</td>
+<td align="center"><code>:white_check_mark:</code></td>
+<td align="center">Adding or updating tests.</td>
+<td align="center">增加测试</td>
+</tr>
+<tr>
+<td align="center">:lock:</td>
+<td align="center"><code>:lock:</code></td>
+<td align="center">Fixing security issues.</td>
+<td align="center">修复安全问题</td>
+</tr>
+<tr>
+<td align="center">:bookmark:</td>
+<td align="center"><code>:bookmark:</code></td>
+<td align="center">Releasing / Version tags.</td>
+<td align="center">发行/版本标签</td>
+</tr>
+<tr>
+<td align="center">:rotating_light:</td>
+<td align="center"><code>:rotating_light:</code></td>
+<td align="center">Removing linter warnings.</td>
+<td align="center">移除 linter 警告</td>
+</tr>
+<tr>
+<td align="center">:construction:</td>
+<td align="center"><code>:construction:</code></td>
+<td align="center">Work in progress.</td>
+<td align="center">工作进行中</td>
+</tr>
+<tr>
+<td align="center">:green_heart:</td>
+<td align="center"><code>:green_heart:</code></td>
+<td align="center">Fixing CI Build.</td>
+<td align="center">修复 CI 构建问题</td>
+</tr>
+<tr>
+<td align="center">:arrow_down:</td>
+<td align="center"><code>:arrow_down:</code></td>
+<td align="center">Downgrading dependencies.</td>
+<td align="center">降级依赖</td>
+</tr>
+<tr>
+<td align="center">:arrow_up:</td>
+<td align="center"><code>:arrow_up:</code></td>
+<td align="center">Upgrading dependencies.</td>
+<td align="center">升级依赖</td>
+</tr>
+<tr>
+<td align="center">:pushpin:</td>
+<td align="center"><code>:pushpin:</code></td>
+<td align="center">Pinning dependencies to specific versions.</td>
+<td align="center">依赖固定到特定版本</td>
+</tr>
+<tr>
+<td align="center">:construction_worker:</td>
+<td align="center"><code>:construction_worker:</code></td>
+<td align="center">Adding or updating CI build system.</td>
+<td align="center">添加 CI 构建系统</td>
+</tr>
+<tr>
+<td align="center">:chart_with_upwards_trend:</td>
+<td align="center"><code>:chart_with_upwards_trend:</code></td>
+<td align="center">Adding or updating analytics or tracking code.</td>
+<td align="center">添加分析或跟踪代码</td>
+</tr>
+<tr>
+<td align="center">:recycle:</td>
+<td align="center"><code>:recycle:</code></td>
+<td align="center">Refactoring code.</td>
+<td align="center">重构代码</td>
+</tr>
+<tr>
+<td align="center">:heavy_plus_sign:</td>
+<td align="center"><code>:heavy_plus_sign:</code></td>
+<td align="center">Adding a dependency.</td>
+<td align="center">增加一个依赖</td>
+</tr>
+<tr>
+<td align="center">:heavy_minus_sign:</td>
+<td align="center"><code>:heavy_minus_sign:</code></td>
+<td align="center">Removing a dependency.</td>
+<td align="center">减少一个依赖</td>
+</tr>
+<tr>
+<td align="center">:wrench:</td>
+<td align="center"><code>:wrench:</code></td>
+<td align="center">Adding or updating configuration files.</td>
+<td align="center">修改配置文件</td>
+</tr>
+<tr>
+<td align="center">:hammer:</td>
+<td align="center"><code>:hammer:</code></td>
+<td align="center">Adding or updating build scripts.</td>
+<td align="center">重大重构</td>
+</tr>
+<tr>
+<td align="center">:globe_with_meridians:</td>
+<td align="center"><code>:globe_with_meridians:</code></td>
+<td align="center">Internationalization and localization.</td>
+<td align="center">国际化与本地化</td>
+</tr>
+<tr>
+<td align="center">:pencil2:</td>
+<td align="center"><code>:pencil2:</code></td>
+<td align="center">Fixing typos.</td>
+<td align="center">修复错别字</td>
+</tr>
+<tr>
+<td align="center">:poop:</td>
+<td align="center"><code>:poop:</code></td>
+<td align="center">Writing bad code that needs to be improved.</td>
+<td align="center">编写需要改进的错误代码</td>
+</tr>
+<tr>
+<td align="center">:rewind:</td>
+<td align="center"><code>:rewind:</code></td>
+<td align="center">Reverting changes.</td>
+<td align="center">还原更改</td>
+</tr>
+<tr>
+<td align="center">:twisted_rightwards_arrows:</td>
+<td align="center"><code>:twisted_rightwards_arrows:</code></td>
+<td align="center">Merging branches.</td>
+<td align="center">Merge 分支</td>
+</tr>
+<tr>
+<td align="center">:package:</td>
+<td align="center"><code>:package:</code></td>
+<td align="center">Adding or updating compiled files or packages.</td>
+<td align="center">更新编译文件或Package</td>
+</tr>
+<tr>
+<td align="center">:alien:</td>
+<td align="center"><code>:alien:</code></td>
+<td align="center">Updating code due to external API changes.</td>
+<td align="center">由于外部API的更改而更新了代码</td>
+</tr>
+<tr>
+<td align="center">:truck:</td>
+<td align="center"><code>:truck:</code></td>
+<td align="center">Moving or renaming files.</td>
+<td align="center">移动或重命名文件</td>
+</tr>
+<tr>
+<td align="center">:page_facing_up:</td>
+<td align="center"><code>:page_facing_up:</code></td>
+<td align="center">Adding or updating license.</td>
+<td align="center">添加或更新 Licence</td>
+</tr>
+<tr>
+<td align="center">:boom:</td>
+<td align="center"><code>:boom:</code></td>
+<td align="center">Introducing breaking changes.</td>
+<td align="center">引入重大变化</td>
+</tr>
+<tr>
+<td align="center">:bento:</td>
+<td align="center"><code>:bento:</code></td>
+<td align="center">Adding or updating assets.</td>
+<td align="center">添加或更新 Assets</td>
+</tr>
+<tr>
+<td align="center">:wheelchair:</td>
+<td align="center"><code>:wheelchair:</code></td>
+<td align="center">Improving accessibility.</td>
+<td align="center">提高可访问性</td>
+</tr>
+<tr>
+<td align="center">:bulb:</td>
+<td align="center"><code>:bulb:</code></td>
+<td align="center">Adding or updating comments in source code.</td>
+<td align="center">记录源代码</td>
+</tr>
+<tr>
+<td align="center">:beers:</td>
+<td align="center"><code>:beers:</code></td>
+<td align="center">Writing code drunkenly.</td>
+<td align="center">醉醺醺地编写代码</td>
+</tr>
+<tr>
+<td align="center">:speech_balloon:</td>
+<td align="center"><code>:speech_balloon:</code></td>
+<td align="center">Adding or updating text and literals.</td>
+<td align="center">更新文本和文字</td>
+</tr>
+<tr>
+<td align="center">:card_file_box:</td>
+<td align="center"><code>:card_file_box:</code></td>
+<td align="center">Performing database related changes.</td>
+<td align="center">执行与数据库相关的更改</td>
+</tr>
+<tr>
+<td align="center">:loud_sound:</td>
+<td align="center"><code>:loud_sound:</code></td>
+<td align="center">Adding or updating logs.</td>
+<td align="center">添加日志</td>
+</tr>
+<tr>
+<td align="center">:mute:</td>
+<td align="center"><code>:mute:</code></td>
+<td align="center">Removing logs.</td>
+<td align="center">移除日志</td>
+</tr>
+<tr>
+<td align="center">:busts_in_silhouette:</td>
+<td align="center"><code>:busts_in_silhouette:</code></td>
+<td align="center">Adding or updating contributor(s).</td>
+<td align="center">添加贡献者</td>
+</tr>
+<tr>
+<td align="center">:children_crossing:</td>
+<td align="center"><code>:children_crossing:</code></td>
+<td align="center">Improving user experience / usability.</td>
+<td align="center">提高用户体验/可用性</td>
+</tr>
+<tr>
+<td align="center">:building_construction:</td>
+<td align="center"><code>:building_construction:</code></td>
+<td align="center">Making architectural changes.</td>
+<td align="center">进行架构更改</td>
+</tr>
+<tr>
+<td align="center">:iphone:</td>
+<td align="center"><code>:iphone:</code></td>
+<td align="center">Working on responsive design.</td>
+<td align="center">致力于响应式设计</td>
+</tr>
+<tr>
+<td align="center">:clown_face:</td>
+<td align="center"><code>:clown_face:</code></td>
+<td align="center">Mocking things.</td>
+<td align="center">Mock 相关</td>
+</tr>
+<tr>
+<td align="center">:egg:</td>
+<td align="center"><code>:egg:</code></td>
+<td align="center">Adding or updating an easter egg.</td>
+<td align="center">添加或更新复活节彩蛋。</td>
+</tr>
+<tr>
+<td align="center">:see_no_evil:</td>
+<td align="center"><code>:see_no_evil:</code></td>
+<td align="center">Adding or updating a .gitignore file</td>
+<td align="center">添加或更新.gitignore文件</td>
+</tr>
+<tr>
+<td align="center">:camera_flash:</td>
+<td align="center"><code>:camera_flash:</code></td>
+<td align="center">Adding or updating snapshots</td>
+<td align="center">添加或更新快照</td>
+</tr>
+<tr>
+<td align="center">:alembic:</td>
+<td align="center"><code>:alembic:</code></td>
+<td align="center">Experimenting new things</td>
+<td align="center">尝试新事物</td>
+</tr>
+<tr>
+<td align="center">:mag:</td>
+<td align="center"><code>:mag:</code></td>
+<td align="center">Improving SEO</td>
+<td align="center">改善SEO</td>
+</tr>
+<tr>
+<td align="center">:label:</td>
+<td align="center"><code>:label:</code></td>
+<td align="center">Adding or updating types (Flow, TypeScript)</td>
+<td align="center">添加或更新类型（Flow，TypeScript）</td>
+</tr>
+<tr>
+<td align="center">:seedling:</td>
+<td align="center"><code>:seedling:</code></td>
+<td align="center">Adding or updating seed files</td>
+<td align="center">添加或更新种子文件</td>
+</tr>
+<tr>
+<td align="center">:triangular_flag_on_post:</td>
+<td align="center"><code>:triangular_flag_on_post:</code></td>
+<td align="center">Adding, updating, or removing feature flags</td>
+<td align="center">添加，更新或删除功能标志</td>
+</tr>
+<tr>
+<td align="center">:goal_net:</td>
+<td align="center"><code>:goal_net:</code></td>
+<td align="center">Catching errors</td>
+<td align="center">捕捉错误</td>
+</tr>
+<tr>
+<td align="center">:dizzy:</td>
+<td align="center"><code>:dizzy:</code></td>
+<td align="center">Adding or updating animations and transitions</td>
+<td align="center">添加或更新动画和过渡</td>
+</tr>
+<tr>
+<td align="center">:wastebasket:</td>
+<td align="center"><code>:wastebasket:</code></td>
+<td align="center">Deprecating code that needs to be cleaned up.</td>
+<td align="center">不赞成使用的代码需要清理</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>文档</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
 </search>
